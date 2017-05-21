@@ -32,6 +32,7 @@ public:
 	
 	~LinkedList(); //destructor
 	void add(int number);
+	void addSorted(int number); 
 	void remove(int number);
 	void displayList();
 

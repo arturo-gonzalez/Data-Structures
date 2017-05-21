@@ -15,6 +15,17 @@ int main()
 	list.add(3); 
 	list.displayList(); 
 
+	//sorted linked list
+	LinkedList sortedlist;
+	sortedlist.addSorted(7);
+	sortedlist.addSorted(6);
+	sortedlist.addSorted(4);
+	sortedlist.addSorted(1);
+	sortedlist.addSorted(9);
+	sortedlist.addSorted(2);
+	sortedlist.displayList();
+
+
 	////////////////////////////
 	//////////Stack ////////////
 	////////////////////////////

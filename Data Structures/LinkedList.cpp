@@ -37,6 +37,31 @@ void LinkedList::add(int number)
 	
 	}
 }
+
+void LinkedList::addSorted(int number)
+{
+	if (head == NULL||head->value >= number)
+	{
+		head = new ListNode(number);
+	}
+	else
+	{
+		//create pointer to traerse the list
+		ListNode *previousNodePtr = head;
+		ListNode *nodePtr = head->next;
+		
+		while (nodePtr != NULL && nodePtr->value < number)
+		{
+			previousNodePtr = nodePtr; 
+			nodePtr = nodePtr->next;
+		}
+
+		previousNodePtr->next = new ListNode(number, nodePtr);
+
+
+	}
+}
+
 void LinkedList::remove(int number)
 {
 	if (head == NULL)
@@ -54,5 +79,5 @@ void LinkedList::displayList()
 		cout << nodePtr->value<<"  "; 
 		nodePtr = nodePtr->next; 
 	}
-
+	cout << endl;
 }
