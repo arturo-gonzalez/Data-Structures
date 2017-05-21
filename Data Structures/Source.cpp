@@ -8,6 +8,7 @@ int main()
 	////////////////////////////
 	///////Linked List /////////
 	////////////////////////////
+	cout << "Linked list" << endl;
 	LinkedList list; 
 	list.add(4);
 	list.add(6); 

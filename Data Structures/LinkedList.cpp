@@ -42,7 +42,7 @@ void LinkedList::addSorted(int number)
 {
 	if (head == NULL||head->value >= number)
 	{
-		head = new ListNode(number);
+		head = new ListNode(number, head);
 	}
 	else
 	{
