@@ -1,5 +1,6 @@
 #include  <iostream>
 #include "LinkedList.h"
+#include "Stack.h"
 using namespace std; 
 
 int main()
@@ -30,6 +31,19 @@ int main()
 	////////////////////////////
 	//////////Stack ////////////
 	////////////////////////////
+	cout << "Stack" << endl; 
+	int popped; 
+	Stack stack; 
+	stack.push(3);
+	stack.push(8); 
+	stack.push(9);
+	stack.push(4); 
+	stack.pop(popped);
+	cout <<"Popping "<< popped << endl;
+	stack.pop(popped);
+	cout << "Popping " << popped << endl;
+	stack.pop(popped);
+	cout << "Popping " << popped << endl;
 
 	////////////////////////////
 	//////////Queue  ///////////
