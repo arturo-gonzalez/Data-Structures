@@ -1,6 +1,7 @@
 #include  <iostream>
 #include "LinkedList.h"
 #include "Stack.h"
+#include "Queue.h"
 using namespace std; 
 
 int main()
@@ -48,7 +49,20 @@ int main()
 	////////////////////////////
 	//////////Queue  ///////////
 	////////////////////////////
-
+	cout << "Queue" << endl; 
+	int dequeued;
+	Queue  queue; 
+	queue.enqueue(6);
+	queue.enqueue(8);
+	queue.enqueue(4);
+	queue.enqueue(5);
+	queue.enqueue(1);
+	queue.dequeue(dequeued);
+	cout << dequeued<<"  ";
+	queue.dequeue(dequeued);
+	cout << dequeued<<"  ";
+	queue.dequeue(dequeued);
+	cout << dequeued<<"  ";
 	////////////////////////////
 	////////Binay Tree  ////////
 	////////////////////////////

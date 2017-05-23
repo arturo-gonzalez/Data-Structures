@@ -17,6 +17,7 @@ LinkedList::~LinkedList()
 
 
 }
+
 void LinkedList::add(int number)
 {
 	if (head == NULL)
@@ -38,6 +39,7 @@ void LinkedList::add(int number)
 	}
 }
 
+ 
 void LinkedList::addSorted(int number)
 {
 	if (head == NULL||head->value >= number)
@@ -62,6 +64,7 @@ void LinkedList::addSorted(int number)
 	}
 }
 
+
 void LinkedList::remove(int number)
 {
 	if (head == NULL)
@@ -70,6 +73,7 @@ void LinkedList::remove(int number)
 	}
 
 }
+ 
 void LinkedList::displayList()
 {
 	//pointer to the head of the list
