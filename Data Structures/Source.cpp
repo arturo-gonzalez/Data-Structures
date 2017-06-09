@@ -86,6 +86,10 @@ int main()
 	bool isthere = tree.search(8); 
 	if (isthere==true)
 		cout << "The number is there" << endl; 
+	tree.remove(3); 
+	cout << "A number has been removed " << endl; 
+	tree.showInOrder();
+	cout << endl; 
 
 
 	return 0; 

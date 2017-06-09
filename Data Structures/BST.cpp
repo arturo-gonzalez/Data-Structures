@@ -39,6 +39,44 @@ bool BST::search(int num)
 	}
 }
 
+void BST::remove(TreeNode *&tree, int num)
+{
+	if (tree == NULL)
+		return;
+	if (num < tree->value)
+		remove(tree->left, num);
+	else if (num > tree->value)
+		remove(tree->right, num);
+	else
+		makeDeletion(tree); 
+}
+
+void BST::makeDeletion(TreeNode*&tree)
+{
+	TreeNode *nodeToDelete = tree; 
+
+	TreeNode *attachPoint; //place where the left subtree is attached 
+
+	if (tree->right == NULL)
+		tree = tree->left;
+	else if (tree->left == NULL)
+		tree = tree->right; 
+	else//node has two children
+	{
+		//access right subtree
+		attachPoint = tree->right; 
+		//find smallest node on right subtree
+		while (attachPoint->left != NULL)
+		{
+			attachPoint = attachPoint->left; 
+		}
+		attachPoint->left = tree->left; 
+		tree = tree->right; 
+	}
+	delete nodeToDelete; 
+
+}
+
 void BST::destroySubtree(TreeNode *tree)
 {
 	if (!tree)
