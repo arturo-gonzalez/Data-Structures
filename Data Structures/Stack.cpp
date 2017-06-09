@@ -1,5 +1,6 @@
 #include "Stack.h"
 #include <iostream>
+#include <stdlib.h>
 using namespace std; 
 
 void Stack::push(int num)
@@ -22,8 +23,6 @@ void Stack::pop(int &num)
 		temp = top; 
 		top = top->next; 
 		delete temp; 
-
-
 	}
 }
 
