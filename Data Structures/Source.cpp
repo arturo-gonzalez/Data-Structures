@@ -4,6 +4,8 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "BST.h"
+#include "heap.h"
+
 using namespace std; 
 
 int main()
@@ -70,6 +72,7 @@ int main()
 	queue.dequeue(dequeued);
 	cout << dequeued<<"  ";
 	cout << endl;
+
 	////////////////////////////
 	////////Binay Tree  ////////
 	////////////////////////////
@@ -92,6 +95,44 @@ int main()
 	tree.showInOrder();
 	cout << endl; 
 
+	////////////////////////////
+	////////Heap  ////////
+	////////////////////////////
+	cout << "------------" << endl;
+	cout << " heap" << endl;
+	
+	Heap heap; 
+	heap.insert(1);
+	heap.insert(4);
+	heap.insert(5);
+	heap.insert(6);
+	heap.insert(2); 
+	heap.insert(7); 
+	heap.insert(3);
+	//return max
+	int max = heap.getMax(); 
+	cout << "The largest number is " << max << endl; 
+	for (int i = 1; i < 7; i++)
+	{
+		heap.deleteMax();
+		max = heap.getMax();
+		cout << "The larges number is " << max << endl;
+
+	}
+	//heap.display(); 
+
+	vector<int> A; 
+	A.push_back(4);
+	A.push_back(3);
+	A.push_back(8);
+	A.push_back(2); 
+
+	Heap heap2;
+	vector<int> B = heap2.sort(A); 
+	for (int i = 0; i < B.size(); i++)
+	{
+		cout << B[i] << "  "; 
+	}
 
 	return 0; 
 }
