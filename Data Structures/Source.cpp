@@ -11,27 +11,28 @@ using namespace std;
 int main()
 {
 
+
 	////////////////////////////
 	///////Linked List /////////
 	////////////////////////////
 	cout << "------------" << endl;
 	cout << "Linked list" << endl;
 	
-	LinkedList list; 
-	list.add(4);
-	list.add(6); 
-	list.add(7);
-	list.add(3); 
+	LinkedList<string> list; 
+	list.add("one");
+	list.add("apple"); 
+	list.add("sand");
+	list.add("mend"); 
 	list.displayList(); 
 
 	//sorted linked list
-	LinkedList sortedlist;
-	sortedlist.addSorted(7);
-	sortedlist.addSorted(6);
-	sortedlist.addSorted(4);
-	sortedlist.addSorted(1);
-	sortedlist.addSorted(9);
-	sortedlist.addSorted(2);
+	LinkedList<string> sortedlist;
+	sortedlist.addSorted("sand");
+	sortedlist.addSorted("and");
+	sortedlist.addSorted("land");
+	sortedlist.addSorted("black");
+	sortedlist.addSorted("key");
+	sortedlist.addSorted("sash");
 	sortedlist.displayList();
 
 
@@ -133,6 +134,10 @@ int main()
 	{
 		cout << B[i] << "  "; 
 	}
+
+	////////////////////////////
+	////////Hash Table ////////
+	////////////////////////////
 
 	return 0; 
 }
