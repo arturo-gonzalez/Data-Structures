@@ -34,6 +34,7 @@ public:
 	void addSorted(T number); 
 	void remove(T number);
 	void displayList();
+	int getSize(); 
 
 	
 };
@@ -131,6 +132,19 @@ void LinkedList<T>::displayList()
 	cout << endl;
 }
 
+
+template<class T>
+int LinkedList<T>::getSize()
+{
+	int size = 0; 
+	ListNode<T> *nodePtr = head;
+	while (nodePtr)
+	{
+		size++; 
+		nodePtr = nodePtr->next;
+	}
+	return size; 
+}
 
 
 

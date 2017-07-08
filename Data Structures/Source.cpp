@@ -5,6 +5,7 @@
 #include "Queue.h"
 #include "BST.h"
 #include "heap.h"
+#include "Hash.h"
 
 using namespace std; 
 
@@ -18,12 +19,12 @@ int main()
 	cout << "------------" << endl;
 	cout << "Linked list" << endl;
 	
-	LinkedList<string> list; 
-	list.add("one");
-	list.add("apple"); 
-	list.add("sand");
-	list.add("mend"); 
-	list.displayList(); 
+	LinkedList<string> list1; 
+	list1.add("one");
+	list1.add("apple"); 
+	list1.add("sand");
+	list1.add("mend"); 
+	list1.displayList(); 
 
 	//sorted linked list
 	LinkedList<string> sortedlist;
@@ -34,6 +35,9 @@ int main()
 	sortedlist.addSorted("key");
 	sortedlist.addSorted("sash");
 	sortedlist.displayList();
+
+	int size = sortedlist.getSize(); 
+	cout << "The size is " <<size << endl; 
 
 
 	////////////////////////////
@@ -138,6 +142,13 @@ int main()
 	////////////////////////////
 	////////Hash Table ////////
 	////////////////////////////
+	Hash hash(11); 
+
+	hash.insert("table"); 
+	hash.insert("money"); 
+	hash.insert("weapon");
+	//hash.insert("paper"); 
+	hash.display(); 
 
 	return 0; 
 }
