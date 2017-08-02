@@ -78,6 +78,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AVL.cpp" />
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="BST.cpp" />
     <ClCompile Include="Hash.cpp" />
     <ClCompile Include="Heap.cpp" />
@@ -87,6 +89,8 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AVL.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="BST.h" />
     <ClInclude Include="Hash.h" />
     <ClInclude Include="Heap.h" />

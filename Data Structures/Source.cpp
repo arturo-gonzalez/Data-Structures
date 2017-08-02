@@ -6,6 +6,8 @@
 #include "BST.h"
 #include "heap.h"
 #include "Hash.h"
+#include "AVL.h"
+#include "Graph.h"
 
 using namespace std; 
 
@@ -90,6 +92,11 @@ int main()
 	tree.insert(3); 
 	tree.insert(8); 
 	tree.insert(5); 
+	tree.insert(11);
+	tree.insert(15);
+	tree.insert(25);
+	tree.insert(35);
+	tree.insert(45);
 	tree.showInOrder(); 
 	cout << endl<<"searching for number 8 " << endl;
 	bool isthere = tree.search(8); 
@@ -99,6 +106,39 @@ int main()
 	cout << "A number has been removed " << endl; 
 	tree.showInOrder();
 	cout << endl; 
+	cout << "Printing tree view " << endl;
+	tree.displayLevelorder();
+	cout << endl; 
+
+	////////////////////////////
+	////////AVL  ////////
+	////////////////////////////
+	cout << "------------" << endl;
+	cout << "AVL" << endl;
+	AVL tree1;
+	tree1.insert(6);
+	tree1.insert(9);
+	tree1.insert(1);
+	tree1.insert(3);
+	tree1.insert(8);
+	//tree1.insert(5);
+	//tree1.insert(11);
+	//tree1.insert(15);
+	//tree1.insert(25);
+	//tree1.insert(35);
+	//tree1.insert(45);
+	tree1.showInOrder();
+	cout << endl << "searching for number 8 " << endl;
+	bool isthere1 = tree1.search(8);
+	if (isthere1 == true)
+		cout << "The number is there" << endl;
+	//tree1.remove(3);
+	//cout << "A number has been removed " << endl;
+	tree1.showInOrder();
+	cout << endl;
+	cout << "Printing tree view " << endl;
+	tree1.displayLevelorder();
+	cout << endl;
 
 	////////////////////////////
 	////////Heap  ////////
@@ -138,17 +178,40 @@ int main()
 	{
 		cout << B[i] << "  "; 
 	}
-
+	cout << endl;
 	////////////////////////////
 	////////Hash Table ////////
 	////////////////////////////
+
+	cout << "------------" << endl;
+	cout << " hash" << endl;
 	Hash hash(11); 
 
 	hash.insert("table"); 
 	hash.insert("money"); 
 	hash.insert("weapon");
-	//hash.insert("paper"); 
-	hash.display(); 
+	hash.insert("paper"); 
+	hash.insert("apple");
+	hash.insert("sand");
+	hash.insert("ice");
+	//hash.display(); 
 
+	////////////////////////////
+	////////BFS////////
+	////////////////////////////
+	cout << "------------" << endl;
+	cout << " BFS" << endl;
+	Graph g(4); 
+	g.addEdge(0, 1);
+	g.addEdge(0, 2);
+	g.addEdge(1, 2);
+	g.addEdge(2, 0);
+	g.addEdge(2, 3);
+	g.addEdge(3, 3);
+	//g.displayGraph();
+
+	g.BFS(3); 
+	int five;
+	cin >> five; 
 	return 0; 
 }

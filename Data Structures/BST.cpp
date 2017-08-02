@@ -116,3 +116,51 @@ void BST::displayPostOrder(TreeNode * tree)
 		cout << tree->value << "  "; 
 	}
 }
+
+void BST::printLevelorder(TreeNode * tree)
+{
+	int h = height(tree);
+	int i; 
+	for (i = 1; i <= h; i++)
+	{
+		cout << i; 
+		printGivenlevel(root, i);
+		cout << endl;
+	}
+		
+
+}
+
+void BST::printGivenlevel(TreeNode * tree, int level)
+{
+	if (tree == NULL)
+	{
+		return; 
+	}
+	if (level == 1)
+	{
+		cout << tree->value; 
+	}
+	else if (level > 1)
+	{
+		printGivenlevel(tree->left, level -1);
+		printGivenlevel(tree->right, level - 1);
+	}
+}
+
+int BST::height(TreeNode * tree)
+{
+	if (tree == NULL)
+	{
+		return 0; 
+	}
+	else
+	{
+		int lheight = height(tree->left);
+		int rheight = height(tree->right); 
+
+		if (lheight > rheight)
+			return(lheight + 1);
+		else return(rheight + 1);
+	}
+}

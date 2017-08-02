@@ -25,9 +25,7 @@ int Hash::find(string i)
 
 void Hash::insert(string x)
 {
-	LinkedList<string> list = lists[hash(x, sizeof(lists))];
-
-	list.add(x); 
+	lists[hash(x, sizeof(lists))].add(x);
 }
 void Hash::remove(string x)
 {

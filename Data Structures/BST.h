@@ -30,6 +30,9 @@ private:
 	void displayInOrder(TreeNode *); 
 	void displayPreOrder(TreeNode *); 
 	void displayPostOrder(TreeNode *); 
+	void printLevelorder(TreeNode *); 
+	void printGivenlevel(TreeNode *, int); 
+	int height(TreeNode*); 
 
 
 public: 
@@ -64,6 +67,17 @@ public:
 		displayPostOrder(root);
 	}
 
+	void displayLevelorder()
+	{
+		printLevelorder(root); 
+	}
+
+
+
+	void getHeight()
+	{
+		height(root); 
+	}
 
 };
 #endif
