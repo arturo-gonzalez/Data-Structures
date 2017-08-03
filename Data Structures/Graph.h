@@ -3,71 +3,122 @@
 #include <iostream>
 #include "LinkedList.h";
 #include <list>
+#include <queue>
+#include <vector> 
 using namespace std;
 
-// This class represents a directed graph using adjacency list representation
+
 class Graph
 {
-	int V;    // No. of vertices
-	list<int> *adj;    // Pointer to an array containing adjacency lists
-public:
-	Graph(int V)  // Constructor
+	class vertex
 	{
-		this->V = V;
-		adj = new list<int>[V];
-	}
-	void addEdge(int v, int w) // function to add an edge to graph
-	{
-		adj[v].push_back(w); // Add w to v’s list.
-	}
-	void BFS(int s) // prints BFS traversal from a given source s
-	{
-		// Mark all the vertices as not visited
-		bool *visited = new bool[V];
-		for (int i = 0; i < V; i++)
-			visited[i] = false;
+	public:
+		string data;				//content
+		list<vertex*> neighbors;	//list of neighbors
+		bool visited;				//is visited
+		vertex* predecesor; 
+		float dist; 
+		vertex *path; 
 
-		// Create a queue for BFS
-		list<int> queue;
-
-		// Mark the current node as visited and enqueue it
-		visited[s] = true;
-		queue.push_back(s);
-
-		// 'i' will be used to get all adjacent vertices of a vertex
-		list<int>::iterator i;
-
-		while (!queue.empty())
+		vertex(string x)
 		{
-			// Dequeue a vertex from queue and print it
-			s = queue.front();
-			cout << s << " ";
-			queue.pop_front();
+			data = x; 
+		}
 
-			// Get all adjacent vertices of the dequeued vertex s
-			// If a adjacent has not been visited, then mark it visited
-			// and enqueue it
-			for each(int v  in adj[s])
+	};
+
+	list<vertex*> adj;    // adjacency list
+
+	//find vertex containg value of x
+	vertex *findVertex(string x)
+	{
+		for each(vertex * v in adj)
+		{
+			if (v->data == x)
 			{
-				if (!visited[v])
-				{
-					visited[v] = true;
-					queue.push_back(v);
-				}
+				return v; 
 			}
 		}
+		return NULL;
 	}
-	void displayGraph()
+
+
+public:
+	Graph()  // Constructor
 	{
 
-		for (int i = 0; i < this->V; i++)
+	}
+
+	void addVertex(string x)
+	{
+		adj.push_back(new vertex(x)); 
+	}
+	//add directed edge going from x to y
+	void addDirectedEdge(string x, string y) 
+	{
+		vertex * vertx = findVertex(x); 
+		vertex * verty = findVertex(y); 
+
+		vertx->neighbors.push_back(verty); 
+	}
+	//add edge from x to y
+	void addEdge(string x, string y)
+	{
+		addDirectedEdge(x, y); 
+		addDirectedEdge(y, x); 
+	}
+	//Breadth First Search traversal
+	void BFS(vertex * s) 
+	{
+		queue<vertex *> Q;		//vertex queue
+		s->visited = true;		//set s to visited
+		Q.push(s);				//add s to the queue
+
+		while (Q.size() != 0)		//loop through the queue queue its not empty
 		{
-			//adj[i].displayList();
+			vertex * x = Q.front(); //vertex x is equal to the first elemnt of the queue
+			Q.pop();				//remove the first element from the queue; 
+
+			for each(vertex *v in x->neighbors) //loop through the neighbors of x
+			{
+				if (v->visited == false)
+				{
+					v->visited = true;			//set visited to true
+					v->predecesor = x;			//set x to be its predecessor
+					Q.push(v);					//enqueue v
+					cout << v->data<<" ";			//print the v's data
+					//displayPredecessors(v); 
+				}
+			}
 
 		}
-
-
 	}
+
+	void testBreadthFirstSearch(string s)
+	{
+		BFS(findVertex(s)); 
+	}
+
+	void Display()
+	{
+		for each(vertex *v in adj)
+		{
+			cout << v->data << ": "; 
+			for each(vertex *u in v->neighbors)
+			{
+				cout << u->data << ", ";
+			}
+			cout << endl; 
+		}
+	}
+
+	void displayPredecessors(vertex *s)
+	{
+		cout << "Its predecessor is " << s->predecesor->data << endl;	//display its predesesor
+	}
+
+
+
 };
 
 #endif

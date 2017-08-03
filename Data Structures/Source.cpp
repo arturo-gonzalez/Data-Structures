@@ -201,17 +201,21 @@ int main()
 	////////////////////////////
 	cout << "------------" << endl;
 	cout << " BFS" << endl;
-	Graph g(4); 
-	g.addEdge(0, 1);
-	g.addEdge(0, 2);
-	g.addEdge(1, 2);
-	g.addEdge(2, 0);
-	g.addEdge(2, 3);
-	g.addEdge(3, 3);
-	//g.displayGraph();
+	Graph g; 
 
-	g.BFS(3); 
-	int five;
-	cin >> five; 
+	g.addVertex("a"); 
+	g.addVertex("b"); 
+	g.addVertex("c"); 
+	g.addVertex("d"); 
+
+	g.addEdge("a", "b");
+	g.addEdge("b", "d");
+	g.addEdge("a", "d");
+	g.addEdge("c", "d");
+
+	g.Display(); 
+
+	g.testBreadthFirstSearch("a"); 
+
 	return 0; 
 }
