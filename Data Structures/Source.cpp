@@ -27,6 +27,8 @@ int main()
 	list1.add("sand");
 	list1.add("mend"); 
 	list1.displayList(); 
+	list1.remove("sand"); 
+	list1.displayList(); 
 
 	//sorted linked list
 	LinkedList<string> sortedlist;

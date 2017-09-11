@@ -80,7 +80,6 @@ void LinkedList<T>::add(T number)
 
 		nodePtr->next = new ListNode<T>(number);
 
-
 	}
 }
 
@@ -112,10 +111,23 @@ void LinkedList<T>::addSorted(T number)
 template <class T>
 void LinkedList<T>::remove(T number)
 {
-	if (head == NULL)
+	if (head !=NULL)
 	{
+		//create pointer to traerse the list
+		ListNode<T> *previousNodePtr = head;
+		ListNode<T> *nodePtr = head->next;
 
+		while (nodePtr != NULL && nodePtr->value != number)
+		{
+			previousNodePtr = nodePtr;
+			nodePtr = nodePtr->next;
+		}
+
+		previousNodePtr->next = nodePtr->next;
 	}
+
+
+
 
 }
 
