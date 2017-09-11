@@ -1,7 +1,6 @@
 #ifndef Graph_H
 #define Graph_H
 #include <iostream>
-#include "LinkedList.h";
 #include <list>
 #include <queue>
 #include <vector> 
@@ -117,6 +116,10 @@ public:
 		cout << "Its predecessor is " << s->predecesor->data << endl;	//display its predesesor
 	}
 
+	void dijkstra()
+	{
+
+	}
 
 
 };

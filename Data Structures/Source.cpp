@@ -217,5 +217,11 @@ int main()
 
 	g.testBreadthFirstSearch("a"); 
 
+	////////////////////////////
+	////////Dijkstra////////
+	////////////////////////////
+	cout << "------------" << endl;
+	cout << " Djkstra" << endl;
+
 	return 0; 
 }
